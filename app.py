@@ -1,3 +1,5 @@
+from importlib.resources import open_text
+from click import open_file
 from flask import Flask
 from flask import request
 
@@ -10,8 +12,17 @@ import math
 
 @app.route("/", methods=['GET'])
 def root():
-    print('PRIVET VIOLETTA')
-    return '<h1>PRIVET VIOLETTA</h1> <img src="https://i.stack.imgur.com/cP8pZ.jpg?s=64&g=1"/>'
+    print('WEB-API-CALCULTOR-PY')
+    return '<h1>WEB-API-CALCULATOR-PY</h1>'
+
+# Open a file: file
+file = open('README.md',mode='r')
+ 
+# read all lines at once
+all_of_it = file.read()
+ 
+# close the file
+file.close()
 
 # curl -d '{"input1": 1, "input2": 2, "operator": "/"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
 @app.route("/calculator", methods=['POST'])
