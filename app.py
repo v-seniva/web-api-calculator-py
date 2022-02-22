@@ -18,7 +18,7 @@ def root():
 def calculator():
     
     json = request.get_json()
-    allowed_operators = ['+', '-', '*', '/', '**','100','sqrt']
+    allowed_operators = ['+', '-', '*', '/']
     allowed_json_keys = ['input1', 'input2', 'operator']
     
     # curl -d '{"input2": 1, "operator": "/"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
@@ -76,13 +76,13 @@ def calculator():
     
     # curl -d '{"input1": 100, "input2": 50, "operator": "**"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
     # curl -d '{"input1": "100", "input2": "50", "operator": "**"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
-    elif operator == '**':
-        return str(float(op1) ** float(op2)) + '\n'
+    #elif operator == '**':
+       # return str(float(op1) ** float(op2)) + '\n'
     # curl -d '{"input1": 100, "input2": 50, "operator": "100"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
-    elif operator == '100':
-        return str((float(op1) + float(op2))* 100 )  + '\n'
+    #elif operator == '100':
+       # return str((float(op1) + float(op2))* 100 )  + '\n'
     # curl -d '{"input1": 100, "input2": 50, "operator": "sqrt"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
-    elif operator == 'sqrt':
-        return str(math.sqrt((float(op1) + float(op2)))) + '\n'
+    #elif operator == 'sqrt':
+       # return str(math.sqrt((float(op1) + float(op2)))) + '\n'
     else:
         return 'Bad request\n'
