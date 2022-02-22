@@ -13,16 +13,20 @@ import math
 @app.route("/", methods=['GET'])
 def root():
     print('WEB-API-CALCULTOR-PY')
-    return '<h1>WEB-API-CALCULATOR-PY</h1>'
+    
+    # Open a file: file
+    file = open('README.md',mode='r')
+ 
+    # read all lines at once
+    all_of_it = file.read()
+ 
+    # close the file
+    file.close()
+    print(all_of_it.splitlines())
+    return '<br>'.join(all_of_it.splitlines())
 
-# Open a file: file
-file = open('README.md',mode='r')
- 
-# read all lines at once
-all_of_it = file.read()
- 
-# close the file
-file.close()
+   
+
 
 # curl -d '{"input1": 1, "input2": 2, "operator": "/"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/calculator
 @app.route("/calculator", methods=['POST'])
