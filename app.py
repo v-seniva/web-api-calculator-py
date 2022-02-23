@@ -8,7 +8,7 @@ from functions import is_number
 app = Flask(__name__)
 
 # import the math module 
-import math 
+# import math 
 
 @app.route("/", methods=['GET'])
 def root():
