@@ -32,8 +32,8 @@ def root():
 @app.route("/calculator", methods=['POST'])
 def calculator():
     #curl -d  -X  http://127.0.0.1:5000/calculator
-    if request.headers['Content-Type'] != 'application/json; charset=UTF-8':
-        return 'Bad request. JSON required. Error 1\n'
+    #if request.headers['Content-Type'] != 'application/json; charset=UTF-8':
+    #     return 'Bad request. JSON required. Error 1\n'
     json = request.get_json()
     allowed_operators = ['+', '-', '*', '/']
     allowed_json_keys = ['input1', 'input2', 'operator']
